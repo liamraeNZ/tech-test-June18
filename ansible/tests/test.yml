@@ -1,0 +1,33 @@
+- hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+
+    - name: Ensure Docker is started and enabled at boot.
+      service:
+        name: docker
+        state: "running"
+        enabled: "yes"
+
+    - name: Ensure Nginx container is running
+      docker_container:
+        name: nginx
+        state: started
+    
+    # Gather status facts from nginx on localhost with a custom timeout of 20 seconds
+    - name: get current http stats
+      nginx_status_facts:
+        url: http://localhost/nginx_status
+        timeout: 20
+      register: nginx_data
+
+    - debug:
+        msg: " {{ nginx_data }}"
+
+    - name: Check the site is running
+      uri:
+        url: http://localhost
+      register: site
+    
+    - debug:
+        msg: "{{ site.msg }}"

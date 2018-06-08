@@ -15,5 +15,16 @@
      * Start the container as a micro service
 * Write appropriate documentation in the repository to explain how someone cloning it should provision the Vagrant VM and access the web URL serving out the “Hello World”
 
-### Requirements:
-   * The web page should be available from the hosting OS
+## Success Criteria:
+   * The web page should be available from the hosting OS - localhost:8080
+
+## Requirements
+  * Vagrant 2.0 or higher
+  * Ansible 2.4 or higher
+
+## Installation/Provisioning
+  One simple command will create the vagrant box, install docker on the guest OS, create the docker container and install Nginx
+  That magical command is - 
+```
+vagrant up
+```

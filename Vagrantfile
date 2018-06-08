@@ -23,4 +23,10 @@ Vagrant.configure("2") do |config|
     ansible.become = true
   end
 
+  # Run tests
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/tests/test.yml"
+    ansible.become = true
+  end
+
 end
