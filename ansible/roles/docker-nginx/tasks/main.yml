@@ -1,0 +1,12 @@
+---
+- name: Build nginx Docker image
+  docker_image:
+    path: ./files/
+    name: nginx-tech-test
+
+- name: Create Docker Container
+  docker_container:
+      name: nginx
+      ports: 80:80
+      state: started
+      image: nginx-tech-test
