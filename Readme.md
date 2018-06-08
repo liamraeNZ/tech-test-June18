@@ -20,7 +20,7 @@
 
 ## Requirements
   * Vagrant 2.0 or higher
-  * Ansible 2.4 or higher
+  * Ansible 2.4.1 or higher
 
 ## Installation/Provisioning
   One simple command will create the vagrant box, install docker on the guest OS, create the docker container and install Nginx
